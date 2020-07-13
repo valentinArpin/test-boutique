@@ -17,10 +17,11 @@ class CreateCouponsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('code')->unique();
-            $table->string('type');
-           // $table->integer('value')->nullable();
-           // $table->integer('percent_off')->nullable();
-            $table->timestamps();
+            $table->tinyInteger('type');
+            $table->json('format');
+            $table->integer('value_off')->nullable();
+            $table->integer('percent_off')->nullable();
+            $table->timestamp('coupon_end')->nullable();
         });
     }
 
