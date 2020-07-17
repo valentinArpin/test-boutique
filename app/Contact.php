@@ -21,4 +21,9 @@ class Contact extends Model
     protected $guarded = [
         'id', 'adresse_id',
     ];
+
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
 }

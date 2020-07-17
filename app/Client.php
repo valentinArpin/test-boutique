@@ -21,4 +21,14 @@ class Client extends Model
     protected $guarded = [
         'id', 'user_id', 'contact_id'
     ];
+
+    public function contact()
+    {
+        return $this->hasOne('App\Contact');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

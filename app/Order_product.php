@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order_product extends Model
 {
-    protected $guarded = [
-        'id', 'order_id', 'product_id',
-    ];
+    public function products()
+    {
+        return $this->belongsToMany('App\Product');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order');
+    }
 }

@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->index();
             $table->bigInteger('payment_intent_id')->unique();
             $table->datetime('payment_created_at');
             //$table->integer('amount');

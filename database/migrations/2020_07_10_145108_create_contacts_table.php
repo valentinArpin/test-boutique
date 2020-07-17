@@ -16,13 +16,13 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('email')->unique();
-            $table->bigInteger('adresses_id');
+            $table->unsignedBigInteger('adresse_id');
             $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_verified_at')->nullable();
             $table->timestamps();
 
-            $table->foreign('adresses_id')->references('id')->on('adresses')->onDelete('cascade');
+            $table->foreign('adresse_id')->references('id')->on('adresses')->onDelete('cascade');
         });
     }
 

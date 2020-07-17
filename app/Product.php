@@ -22,4 +22,9 @@ class Product extends Model
     protected $guarded = [
         'id',
     ];
+
+    public function order_products()
+    {
+        return $this->belongsToMany('App\Order_product');
+    }
 }
